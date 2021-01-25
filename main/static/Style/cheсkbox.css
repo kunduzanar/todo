@@ -11,7 +11,7 @@
     user-select: none;
   }
   
-  /* Hide the browser's default checkbox */
+
   .сheckbox_container input {
     position: absolute;
     opacity: 0;
@@ -30,7 +30,7 @@
     background-color: #eee;
   }
   
-  /* On mouse-over, add a grey background color */
+  
   .сheckbox_container:hover input ~ .checkmark {
     background-color: #ccc;
   }
