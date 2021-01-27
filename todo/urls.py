@@ -26,7 +26,9 @@ urlpatterns = [
     path('test2/', second, name= "second" ),
     path('test3/', third ),
     path('add-todo/', add_todo, name="add-todo"),
-    path('delete-todo/<id>/', delete_todo, name="delete-todo")
+    path('delete-todo/<id>/', delete_todo, name="delete-todo"),
+    path('marked-todo/<id>/', marked_todo, name ="marked-todo"), 
+    path('unmarked-todo/<id>/', unmarked_todo, name ="unmarked-todo"),
     # path('books/', books_list, name ="books"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -48,7 +48,7 @@ section{
     padding:10px 15px;
     width:23%;
     margin-bottom: 20px;
-    background-color: rgb(231, 211, 227);
+    background-color: rgb(115, 235, 229);
 }
 
 .todo_item.done{
@@ -66,8 +66,8 @@ text-decoration: line-through;
 }
 
 .todo_item.marked{
-    background-color: rgb(194, 194, 103);
-    border: 2px solid rgb(194, 194, 103);
+    background-color: hsl(44, 91%, 64%);
+    border: 2px solid hsl(44, 91%, 64%);
 }
 
 .todo_item_header{

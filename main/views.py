@@ -21,7 +21,7 @@ def add_todo(request):
     form = request.POST
     text = form["todo_text"]
     todo = ToDo(text = text)
-    todo.save()
+    todo.save() 
     return redirect(test)
 
 def books_list(request):
@@ -31,4 +31,16 @@ def books_list(request):
 def delete_todo(request, id):
     todo = ToDo.objects.get(id = id)
     todo.delete()
+    return redirect(test)
+
+def marked_todo(request, id):
+    todo = ToDo.objects.get(id = id)
+    todo.is_favorites = True
+    todo.save() # сохраняет изменения  
+    return redirect(test)
+
+def unmarked_todo(request, id):
+    todo = ToDo.objects.get(id = id)
+    todo.is_favorites = False
+    todo.save() # сохраняет изменения  
     return redirect(test)
