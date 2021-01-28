@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models  import ToDo, Books
+from .models  import ToDo, Book
 
 def homepage(request):
    return render(request, "index.html")
@@ -53,13 +53,13 @@ def close_todo(request, id):
     return redirect(test)
 
 def books(request):
-    books = Books.objects.all()
+    books = Book.objects.all()
     return render(request, "books.html",{"books":books})
     
 
 def add_book(request):
     form = request.POST
-    books = Books(
+    books = Book(
         title=form["title"],
         subtitle=form["subtitle"],
         description=form["description"],
@@ -72,18 +72,18 @@ def add_book(request):
     return redirect(books)
 
 def unmarked_book(request, id):
-    books = Books.objects.get(id = id)
+    books = Book.objects.get(id = id)
     books.is_favorites = False
     books.save() 
     return redirect(books)
 
 def marked_book(request, id):
-    books = Books.objects.get(id = id)
+    books = Book.objects.get(id = id)
     books.is_favorites = False
     books.save() 
     return redirect(books)
 
 def delete_book(request, id):
-    books = Books.objects.get(id = id)
+    books = Book.objects.get(id = id)
     books.delete()
     return redirect(books)
