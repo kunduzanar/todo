@@ -1,11 +1,68 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books
+    </title>
+    <link rel="stylesheet" href="{% static './styles/books.css' %}" /> 
+    <link rel="stylesheet" href="{% static './styles/cheсkbox.css'%)"/> -->
+   <link rel="stylesheet" href="../static/styles/books.css">
 </head>
 <body>
-    <h3>Ваши изменения были успешно внесены!</h3>
+  
+<section>
+    <div class ="create_container">
+         <form action="{% url 'add-book' %}" method = "POST">
+             <!-- <h1>Добавить книгу в каталог</h1> -->
+            <input class="create_book" type="text" placeholder="Введите заголовок" name="title">
+            <input class="create_book" type="text" placeholder="Введите подзаголовок" name="subtitle">
+            <input class="create_book" type="number"  placeholder="Введите цену" name="price ">
+            <input class="create_book" type="text" placeholder="Введите жанр книги" name="genre" >
+            <input class="create_book" type="text" placeholder="Введите автора" name="author" >
+            <input class="create_book" type="text" placeholder="Введите описание " name="description" >
+            <input class="create_book" type="datetime" placeholder="Введите год" name="year" >
+            <button class="create_button"> Добавить </button>
+       </form>
+
+    </div>
+    <div class = "book_container">
+        <div class = "book_item" 
+            {% if books.is_favorites%}
+                marked
+            {% endif %}>
+            
+            <div class="book_item_header">
+                <a href=""><h4>Секреты эффективности</h4></a>
+                
+                
+                <!-- <h3>{{ book.title}} - {{book.author}}</h3>
+                <h3>{{ book.genre}} - {{book.subtitle}}</h3>
+                <h3>{{ book.datetime}} - {{book.price}}</h3>  -->
+            
+            </div>
+    
+        <div class="book_item_footer"> 
+            <a href=""><p>see more...</p></a>
+            <div class="action_buttons">
+                <!-- <a href="{% url 'unmarked-book' books.id %}"> -->
+                    <!-- <img src="{% static './icons/star_done.png' %}"/></a> -->
+                   
+                <!-- </a> -->
+                <!-- <a href="{% url 'marked-book' books.id %}">
+                    <img src="{% static './icons/favorites.png' %}"/></a>
+            
+                <a href="{% url 'delete-book' books.id %}">
+                    <img src="{% static './icons/delete_icon.png' %}" /></a> -->
+                    <img src="../static/icons/favorites.png"/>
+                    <img src="../static/icons/delete_icon.png"/>
+
+            </div>
+        </div>
+     </div>
+  
+</div>
+    </section>
 </body>
 </html>

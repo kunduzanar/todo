@@ -11,10 +11,13 @@ class Books(models.Model):
     title = models.CharField(max_length=50)
     subtititle = models.CharField(max_length=200)
     description = models.TextField()
-    price = models.PositiveIntegerField(max_length=50)
+    price = models.PositiveIntegerField()
     genre = models.CharField(max_length = 50)
     author = models.CharField(max_length = 150)
     year = models.DateField()
-   
+    is_favorites= models.BooleanField(default = False)
+    created_at = models.DateField(auto_now = True)
+    is_done = models.BooleanField(default = False)
+    is_favorites = models.BooleanField(default = False)
 
     

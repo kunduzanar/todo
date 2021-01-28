@@ -43,6 +43,11 @@ def unmarked_todo(request, id):
 
 def close_todo(request, id):
     todo = ToDo.objects.get(id = id)
+    todo.is_done = True
+    todo.save()  
+    return redirect(test)
+def close_todo(request, id):
+    todo = ToDo.objects.get(id = id)
     todo.is_done = not todo.is_done
     todo.save()  
     return redirect(test)
@@ -54,15 +59,31 @@ def books(request):
 
 def add_book(request):
     form = request.POST
-    book = Books(
+    books = Books(
         title=form["title"],
         subtitle=form["subtitle"],
-        # description=form["description"],
+        description=form["description"],
         price= form["price"],
         genre= form["genre"],
         author= form["author"],
         year=form["date"]
     )
-    book.save()
+    books.save()
     return redirect(books)
-    
+
+def unmarked_book(request, id):
+    books = Books.objects.get(id = id)
+    books.is_favorites = False
+    books.save() 
+    return redirect(books)
+
+def marked_book(request, id):
+    books = Books.objects.get(id = id)
+    books.is_favorites = False
+    books.save() 
+    return redirect(books)
+
+def delete_book(request, id):
+    books = Books.objects.get(id = id)
+    books.delete()
+    return redirect(books)

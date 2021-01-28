@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgb(56, 56, 56);
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-around;
+}
+.create_container{
+    width:80%;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+.create_container h1{
+    text-align: center;
+    border: 1px solid rgb(192, 189, 189);
+    border-radius: 4px;
+    text-decoration-color: rgb(114, 111, 111) ;
+    background: lavender;
+    
+}
+.create_book{
+    width:23%;
+    border-radius: 3px;
+    border: 1px solid rgb(71, 71, 71);
+    padding:5px 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+   
+}
+.create_button{
+    padding: 12px 20px;
+    margin: 10px 15px;
+    background-color:#8af88a;
+    border: 1px solid #d8e6dd;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+    text-transform: uppercase ;
+    cursor: pointer;
+}
+.create_button:active{
+    border:1px solid #b8fc9e;
+    box-shadow: 2px 2px 5px 3px #76a054;}
+
+.book_container{
+    width: 100%;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.book_item{
+    border-radius: 3px;
+    border: 1px solid rgb(71, 71, 71);
+    padding:10px 15px;
+    width:33%;
+    margin-bottom: 20px;
+    background-color: rgb(194, 221, 223);
+}
+/* Изменения в статусе favorites */
+.book_item.done{
+background: #E0e0e0;
+color: #757575;
+text-decoration: line-through;
+}
+
+.book_item.done h4, .todo_item.done p, .todo_item.done span{
+    color: #757575;
+}
+
+.book_item.done img{
+    opacity: 0.5;
+}
+
+.book_item.marked{
+    background-color: hsl(61, 80%, 61%);
+    border: 2px solid hsl(44, 91%, 64%);
+}
+
+
+/* Header */
+.book_item_header{
+    display: flex;
+    min-height: 35px;
+    align-items: center;
+}
+.book_item_header h4{
+    font-size: 14px;
+    font-family:  sans-serif;
+}
+.book_item_header a{
+    text-decoration: none;
+    padding: 5px;
+}
+/* Footer */
+.book_item_footer{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+}
+.book_item_footer p{
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+.book_item_footer .action_buttons{
+display: flex;
+}
+.book_item_footer img{
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+

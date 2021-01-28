@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books
     </title>
-    <link rel="stylesheet" href="{% static './styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static './styles/books.css' %}" />
     <link rel="stylesheet" href="{% static './styles/cheсkbox.css'%)"/>
    
 </head>
@@ -21,7 +22,6 @@
             <input class="create_book" type="text" placeholder="Жанр книги" name="genre" ><br><br>
             <input class="create_book" type="text" placeholder="Автор" name="author" ><br><br>
             <input class="create_book" type="text" placeholder="Описание " name="description" ><br><br>
-
             <input class="create_book" type="datetime" placeholder="Год издания" name="year" ><br><br>
 
         <button class="create_button"> Добавить </button>
@@ -29,33 +29,38 @@
         </form>
     </div>
     <div class = "book_container">
-        
-        <div class = "book_item">
+        <!-- {% for books in books %} -->
+        <div class = "book_item" 
             {% if books.is_favorites%}
                 marked
-            {% endif %}
+            {% endif %}>
+            
     <div class="book_item_header">
-        {% for book in books %}
+        <!-- {% for books in books %} -->
         <h3>{{ book.title}} - {{book.author}}</h3>
         <h3>{{ book.genre}} - {{book.subtitle}}</h3>
         <h3>{{ book.datetime}} - {{book.price}}</h3> 
-        {% endfor%}
+        <!-- {% endfor%} -->
     </div>
-    <div class="todo_item_footer">
-        <p>{{ todo.created_at }}</p>
+    <!-- прописать для этого стиль -->
+    <div class="books_item_footer"> 
+        
+        <p>{{ book.created_at }}</p>
         <div class="action_buttons">
-            {% if todo.is_favorites %}
-            <a href="{% url 'unmarked-todo' todo.id %}"><img src="{% static './icons/star_done.png' %}"/></a>
+            {% if book.is_favorites %}
+            <a href="{% url 'unmarked-book' books.id %}">
+                <img src="{% static './icons/star_done.png' %}"/></a>
             {% else %}
-            <a href="{% url 'marked-todo' todo.id %}"><img src="{% static './icons/favorites.png' %}"/></a>
+            <a href="{% url 'marked-book' books.id %}">
+                <img src="{% static './icons/favorites.png' %}"/></a>
             {% endif %}
 
-            
-            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete_icon.png' %}" /></a>
+            <a href="{% url 'delete-book' books.id %}">
+                <img src="{% static './icons/delete_icon.png' %}" /></a>
          </div>
      </div>
      </div>
-
+     {% endfor %}
 </div>
     </section>
 </body>
