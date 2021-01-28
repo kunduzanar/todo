@@ -48,7 +48,7 @@ section{
     padding:10px 15px;
     width:23%;
     margin-bottom: 20px;
-    background-color: rgb(115, 235, 229);
+    background-color: rgb(170 253 152);
 }
 
 .todo_item.done{
@@ -66,7 +66,7 @@ text-decoration: line-through;
 }
 
 .todo_item.marked{
-    background-color: hsl(258, 91%, 64%);
+    background-color: hsl(61, 80%, 61%);
     border: 2px solid hsl(44, 91%, 64%);
 }
 
@@ -80,6 +80,10 @@ text-decoration: line-through;
     font-size: 18px;
     font-family:  sans-serif;
 }
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 .todo_item_footer{
     display: flex;
     justify-content:space-between ;

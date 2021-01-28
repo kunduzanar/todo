@@ -24,8 +24,6 @@ def add_todo(request):
     todo.save() 
     return redirect(test)
 
-
-
 def delete_todo(request, id):
     todo = ToDo.objects.get(id = id)
     todo.delete()
@@ -41,6 +39,12 @@ def unmarked_todo(request, id):
     todo = ToDo.objects.get(id = id)
     todo.is_favorites = False
     todo.save() # сохраняет изменения  
+    return redirect(test)
+
+def close_todo(request, id):
+    todo = ToDo.objects.get(id = id)
+    todo.is_done = not todo.is_done
+    todo.save()  
     return redirect(test)
 
 def books(request):

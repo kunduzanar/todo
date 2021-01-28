@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books
     </title>
+    <link rel="stylesheet" href="{% static './styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static './styles/cheсkbox.css'%)"/>
    
 </head>
 <body>
   
 <section>
     <div class ="create_container">
-        <h1>Добавить новую книгу</h1>
-       <form action="{% url 'add-book' %}" method = "POST">
+         <form action="{% url 'add-book' %}" method = "POST">
             {% csrf_token %}
             <input class="create_book" type="text" placeholder="Заголовок" name="title"><br><br>
             <input class="create_book" type="text" placeholder="Подзаголовок" name="subtitle"><br><br>
@@ -26,15 +27,36 @@
         <button class="create_button"> Добавить </button>
             
         </form>
-        <div>
-            {% for book in books %}
-            <h3>{{ book.title}} - {{book.author}}</h3>
-            <h3>{{ book.genre}} - {{book.subtitle}}</h3>
-            <h3>{{ book.datetime}} - {{book.price}}</h3> 
-           {% endfor%}
-        </div>
     </div>
-    
+    <div class = "book_container">
+        
+        <div class = "book_item">
+            {% if books.is_favorites%}
+                marked
+            {% endif %}
+    <div class="book_item_header">
+        {% for book in books %}
+        <h3>{{ book.title}} - {{book.author}}</h3>
+        <h3>{{ book.genre}} - {{book.subtitle}}</h3>
+        <h3>{{ book.datetime}} - {{book.price}}</h3> 
+        {% endfor%}
+    </div>
+    <div class="todo_item_footer">
+        <p>{{ todo.created_at }}</p>
+        <div class="action_buttons">
+            {% if todo.is_favorites %}
+            <a href="{% url 'unmarked-todo' todo.id %}"><img src="{% static './icons/star_done.png' %}"/></a>
+            {% else %}
+            <a href="{% url 'marked-todo' todo.id %}"><img src="{% static './icons/favorites.png' %}"/></a>
+            {% endif %}
+
+            
+            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete_icon.png' %}" /></a>
+         </div>
+     </div>
+     </div>
+
+</div>
     </section>
 </body>
 </html>
