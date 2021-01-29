@@ -30,25 +30,34 @@
      
     <div class = "book_container">
     {% for book in books %}
-        <div class = "book_item" >
-            {% if books.is_favorites%}
-                marked
-            {% endif %}> 
-           
-    <div class="book_item_header">
-        <h3>{{ book.title}} - {{book.author}}</h3>
-        <h3>{{ book.genre}} - {{book.subtitle}}</h3>
-        <h3>{{ book.datetime}} - {{book.price}}</h3> 
-     </div>
-    {% endfor%}
-    <!-- прописать для этого стиль -->
-    <div class="books_item_footer"> 
-        
-     </div>
-     </div>
-     </div>
-     
-</div>
-    </section>
+        <div class = "book_item 
+                {% if books.is_favorites%}
+                    marked
+                {% endif %}">
+            
+            <div class="book_item_header">
+                <label >
+                    <h3>{{ book.title}} - {{book.author}}</h3>
+                    <h3>{{ book.genre}} - {{book.subtitle}}</h3>
+                    <h3>{{ book.datetime}} - {{book.price}}</h3> 
+                </label>
+                <h4>{{ book.book}}</h4>
+            </div>
+                
+            <div class="books_item_footer"> 
+                <p>{{ book.created_at}}</p>
+                <div class ="action_buttons"{% if book.is_favorites %}>
+                    
+                <a href="{% url 'unmarked-book' book.id%}"><img src="{% static './icons/favorites.png' %}"/></a>
+                    {% elif %}
+                <a href="{% url 'unmarked-book' book.id %}"><img src="{% static './icons/star_done.png' %}"/></a>
+                <a href="{% url 'delete-book' book.id %}"><img src="{% static './icons/delete_icon.png' %}"/></a>
+            </div>
+                
+            </div>
+        </div>
+     {% endfor %}
+    </div>
+</section>
 </body>
 </html>

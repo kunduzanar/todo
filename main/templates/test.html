@@ -56,7 +56,7 @@
                         <p>{{ todo.created_at }}</p>
                         <div class="action_buttons">
                             {% if todo.is_favorites %}
-                                <a href="{% url 'unmarked-todo' todo.id %}"><img src="{% static './icons/star_done.png' %}"/></a>
+                            <a href="{% url 'unmarked-todo' todo.id %}"><img src="{% static './icons/star_done.png' %}"/></a>
                             {% else %}
                             <a href="{% url 'marked-todo' todo.id %}"><img src="{% static './icons/favorites.png' %}"/></a>
                             {% endif %}

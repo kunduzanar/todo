@@ -48,21 +48,15 @@ def close_todo(request, id):
     todo.is_done = True
     todo.save()  
     return redirect(test)
-def close_todo(request, id):
-    todo = ToDo.objects.get(id = id)
-    todo.is_done = not todo.is_done
-    todo.save()  
-    return redirect(test)
 
-
-  
+ 
 def books(request):
     books = Book.objects.all()
     return render(request, "books.html",{"books": books})
 
 def add_book(request):
     form = request.POST #переменная форм из тега Form)
-    b = Book(
+    book = Book(
         title=form["title"],
         subtitle=form["subtitle"],
         description=form["description"],
@@ -71,7 +65,7 @@ def add_book(request):
         author=form["author"],
         year=form["year"][:10],
     )
-    b.save()
+    book.save()
     return redirect(books) # передаю функцию books, которую прописала выше
 
 def unmarked_book(request, id):

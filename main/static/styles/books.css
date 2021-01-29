@@ -120,8 +120,8 @@ text-decoration: line-through;
 display: flex;
 }
 .book_item_footer img{
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     margin: 0 5px;
     cursor: pointer;
 }
