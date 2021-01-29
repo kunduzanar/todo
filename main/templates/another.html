@@ -9,3 +9,16 @@
     <p> Ваша запись была удалена.</p>
 </body>
 </html>
+{% for book in books%} 
+<p>{{ book.created_at }}</p>
+<div class="action_buttons">
+    {% if book.is_favorites %}
+    <a href="{% url 'unmarked-book' books.id %}">
+        <img src="{% static './icons/star_done.png' %}"/></a>
+    {% else %}
+    <a href="{% url 'marked-book' books.id %}">
+        <img src="{% static './icons/favorites.png' %}"/></a>
+    {% endif %}
+
+    <a href="{% url 'delete-book' books.id %}">
+        <img src="{% static './icons/delete_icon.png' %}" /></a

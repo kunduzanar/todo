@@ -14,11 +14,11 @@
   
 <section>
     <div class ="create_container">
-         <form action="{% url 'add-book' %}" method = "POST">
+        <form action="{% url 'add-book' %}" method = "POST">
             {% csrf_token %}
             <input class="create_book" type="text" placeholder="Введите заголовок" name="title">
             <input class="create_book" type="text" placeholder="Введите подзаголовок" name="subtitle">
-            <input class="create_book" type="number"placeholder="Введите цену" name="price ">
+            <input class="create_book" type="text"placeholder="Введите цену" name="price ">
             <input class="create_book" type="text" placeholder="Введите жанр книги" name="genre" >
             <input class="create_book" type="text" placeholder="Введите автора" name="author" >
             <input class="create_book" type="text" placeholder="Введите описание " name="description" >
@@ -26,40 +26,28 @@
             <button class="create_button"> Добавить </button>
             
         </form>
-    </div>
+    </div> 
+     
     <div class = "book_container">
-        <!-- {% for books in books %} -->
-        <div class = "book_item" 
+    {% for book in books %}
+        <div class = "book_item" >
             {% if books.is_favorites%}
                 marked
-            {% endif %}>
-            
+            {% endif %}> 
+           
     <div class="book_item_header">
-        <!-- {% for books in books %} -->
         <h3>{{ book.title}} - {{book.author}}</h3>
         <h3>{{ book.genre}} - {{book.subtitle}}</h3>
         <h3>{{ book.datetime}} - {{book.price}}</h3> 
-        <!-- {% endfor%} -->
-    </div>
+     </div>
+    {% endfor%}
     <!-- прописать для этого стиль -->
     <div class="books_item_footer"> 
         
-        <p>{{ book.created_at }}</p>
-        <div class="action_buttons">
-            {% if book.is_favorites %}
-            <a href="{% url 'unmarked-book' books.id %}">
-                <img src="{% static './icons/star_done.png' %}"/></a>
-            {% else %}
-            <a href="{% url 'marked-book' books.id %}">
-                <img src="{% static './icons/favorites.png' %}"/></a>
-            {% endif %}
-
-            <a href="{% url 'delete-book' books.id %}">
-                <img src="{% static './icons/delete_icon.png' %}" /></a>
-         </div>
      </div>
      </div>
-     {% endfor %}
+     </div>
+     
 </div>
     </section>
 </body>

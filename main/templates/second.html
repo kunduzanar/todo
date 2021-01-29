@@ -14,11 +14,12 @@
   
 <section>
     <div class ="create_container">
-         <form action="{% url 'add-book' %}" method = "POST">
+        <form action="{% url 'add-book' %}" method = "POST">
+            {% csrf token %}
              <!-- <h1>Добавить книгу в каталог</h1> -->
             <input class="create_book" type="text" placeholder="Введите заголовок" name="title">
             <input class="create_book" type="text" placeholder="Введите подзаголовок" name="subtitle">
-            <input class="create_book" type="number"placeholder="Введите цену" name="price ">
+            <input class="create_book" type="text"placeholder="Введите цену" name="price ">
             <input class="create_book" type="text" placeholder="Введите жанр книги" name="genre" >
             <input class="create_book" type="text" placeholder="Введите автора" name="author" >
             <input class="create_book" type="text" placeholder="Введите описание " name="description" >
@@ -28,20 +29,18 @@
 
     </div>
     <div class = "book_container">
-        {% for book in book_list%}
-        <div class = "book_item" 
-            {% if books.is_favorites%}
-                marked
-            {% endif %}>
+        
+        <div class = "book_item" ></div>
+           
             
             <div class="book_item_header">
-                
+            {% for book in books %}
                 <h3>{{ book.title}} - <b>{{book.author}}</b></h3>
                 
                 <h5>{{ book.datetime}} </h5>
                 
                 <a href=""><h4>Секреты эффективности</h4></a>
-                
+            {% endfor %} 
                 
                 
             
