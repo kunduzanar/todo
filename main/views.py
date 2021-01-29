@@ -17,6 +17,8 @@ def second(request):
 def third(request):
     return HttpResponse("This is third test page")
 
+
+
 def add_todo(request):
     form = request.POST
     text = form["todo_text"]
@@ -53,9 +55,9 @@ def close_todo(request, id):
     return redirect(test)
 
 def books(request):
-    books = Book.objects.all()
-    return render(request, "books.html",{"books":books})
-    
+    book_list = Book.objects.all()
+    return render(request, "books.html",{"book_list": book_list})
+  
 
 def add_book(request):
     form = request.POST

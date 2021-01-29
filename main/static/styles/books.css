@@ -13,9 +13,9 @@ section{
     justify-content: space-around;
 }
 .create_container{
-    width:80%;
+    width:100%;
     padding: 20px 30px;
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;

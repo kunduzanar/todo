@@ -16,15 +16,14 @@
     <div class ="create_container">
          <form action="{% url 'add-book' %}" method = "POST">
             {% csrf_token %}
-            <input class="create_book" type="text" placeholder="Заголовок" name="title"><br><br>
-            <input class="create_book" type="text" placeholder="Подзаголовок" name="subtitle"><br><br>
-            <input type="number" placeholder="Цена" name="price "><br><br>
-            <input class="create_book" type="text" placeholder="Жанр книги" name="genre" ><br><br>
-            <input class="create_book" type="text" placeholder="Автор" name="author" ><br><br>
-            <input class="create_book" type="text" placeholder="Описание " name="description" ><br><br>
-            <input class="create_book" type="datetime" placeholder="Год издания" name="year" ><br><br>
-
-        <button class="create_button"> Добавить </button>
+            <input class="create_book" type="text" placeholder="Введите заголовок" name="title">
+            <input class="create_book" type="text" placeholder="Введите подзаголовок" name="subtitle">
+            <input class="create_book" type="number"placeholder="Введите цену" name="price ">
+            <input class="create_book" type="text" placeholder="Введите жанр книги" name="genre" >
+            <input class="create_book" type="text" placeholder="Введите автора" name="author" >
+            <input class="create_book" type="text" placeholder="Введите описание " name="description" >
+            <input class="create_book" type="datetime" placeholder="Введите год" name="year" >
+            <button class="create_button"> Добавить </button>
             
         </form>
     </div>

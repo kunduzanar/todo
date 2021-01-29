@@ -7,7 +7,7 @@
     <title>Books
     </title>
     <link rel="stylesheet" href="{% static 'styles/books.css' %}" /> 
-    <link rel="stylesheet" href="{% static 'styles/cheсkbox.css'%)"/> -->
+    <link rel="stylesheet" href="{% static 'styles/cheсkbox.css'%)"/> 
    <!-- <link rel="stylesheet" href="../static/styles/books.css"> -->
 </head>
 <body>
@@ -18,7 +18,7 @@
              <!-- <h1>Добавить книгу в каталог</h1> -->
             <input class="create_book" type="text" placeholder="Введите заголовок" name="title">
             <input class="create_book" type="text" placeholder="Введите подзаголовок" name="subtitle">
-            <input class="create_book" type="number"  placeholder="Введите цену" name="price ">
+            <input class="create_book" type="number"placeholder="Введите цену" name="price ">
             <input class="create_book" type="text" placeholder="Введите жанр книги" name="genre" >
             <input class="create_book" type="text" placeholder="Введите автора" name="author" >
             <input class="create_book" type="text" placeholder="Введите описание " name="description" >
@@ -28,40 +28,40 @@
 
     </div>
     <div class = "book_container">
+        {% for book in book_list%}
         <div class = "book_item" 
             {% if books.is_favorites%}
                 marked
             {% endif %}>
             
             <div class="book_item_header">
+                
+                <h3>{{ book.title}} - <b>{{book.author}}</b></h3>
+                
+                <h5>{{ book.datetime}} </h5>
+                
                 <a href=""><h4>Секреты эффективности</h4></a>
                 
                 
-                <!-- <h3>{{ book.title}} - {{book.author}}</h3>
-                <h3>{{ book.genre}} - {{book.subtitle}}</h3>
-                <h3>{{ book.datetime}} - {{book.price}}</h3>  -->
+                
             
             </div>
     
-        <div class="book_item_footer"> 
-            <a href=""><p>see more...</p></a>
-            <div class="action_buttons">
-                <!-- <a href="{% url 'unmarked-book' books.id %}"> -->
-                    <!-- <img src="{% static './icons/star_done.png' %}"/></a> -->
-                   
-                <!-- </a> -->
-                <!-- <a href="{% url 'marked-book' books.id %}">
-                    <img src="{% static './icons/favorites.png' %}"/></a>
-            
-                <a href="{% url 'delete-book' books.id %}">
-                    <img src="{% static './icons/delete_icon.png' %}" /></a> -->
-                    <img src="../static/icons/favorites.png"/>
-                    <img src="../static/icons/delete_icon.png"/>
-
+            <div class="book_item_footer"> 
+                <a href=""><p>see more...</p></a>
+                <div class="action_buttons">
+                    <!-- <a href="{% url 'unmarked-book' books.id %}"> -->
+                        <!-- <img src="{% static './icons/star_done.png' %}"/></a> -->
+                    
+                    <!-- </a> -->
+                     <a href=""><img src="{% static './icons/favorites.png' %}"/></a>
+                     <a href=""><img src="{% static './icons/delete_icon.png' %}"/></a>
+                  
+                        
             </div>
         </div>
      </div>
-  
+     {% endfor %}
 </div>
     </section>
 </body>
